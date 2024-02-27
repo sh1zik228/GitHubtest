@@ -1,9 +1,27 @@
-from flask import Flask
+import math
 
-app = Flask('app')
+def axis(array):
+    min_val = min(array)
+    max_val = max(array)
 
-@app.route('/')
-def hello_world():
-  return 'Hello, World!'
+    axis_length = max_val - min_val
 
-app.run(host='0.0.0.0', port=8080)
+    return axis_length
+
+try:
+    n = int(input("Введіть кількість елементів у послідовності: "))
+    if n > 0:
+        array = []
+
+        print("Введіть елементи послідовності:")
+        for i in range(n):
+            element = float(input())
+            array.append(element)
+
+        length = axis(array)
+
+        print("Найменша довжина числової осі:", length)
+    else:
+        print("Введіть правильне значення")
+except ValueError:
+    print("Введіть правильне значення")
