@@ -1,16 +1,27 @@
 import math
 
-n = int(input("Введіть кількість елементів у послідовності: "))
-array = []
+def axis(array):
+    min_val = min(array)
+    max_val = max(array)
 
-print("Введіть елементи послідовності:")
-for i in range(n):
-  element = float(input())
-  array.append(element)
+    axis_length = max_val - min_val
 
-min_val = min(array)
-max_val = max(array)
+    return axis_length
 
-axis_length = max_val - min_val
+try:
+    n = int(input("Введіть кількість елементів у послідовності: "))
+    if n > 0:
+        array = []
 
-print("Довжина осі:", axis_length)
+        print("Введіть елементи послідовності:")
+        for i in range(n):
+            element = float(input())
+            array.append(element)
+
+        length = axis(array)
+
+        print("Найменша довжина числової осі:", length)
+    else:
+        print("Введіть правильне значення")
+except ValueError:
+    print("Введіть правильне значення")
